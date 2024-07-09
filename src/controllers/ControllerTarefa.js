@@ -16,18 +16,20 @@ exports.criaTarefa = (req, res) => {
 //busca de todas as tarefas
 exports.listAll = (req, res) => {
 
-    Tarefa.findAll( (err, tarefas) => {
+    const userID = req.user.id;
+    Tarefa.findAllTarefas(userID, (err, tarefas) => {
         if(err) return res.status(500).json({message: err.message});
         else return res.status(200).json(tarefas);
     });
 
 }
 
-//busca tarefa por id
+//busca tarefa do usuário por id 
 exports.getById = (req, res) => {
     const {id} = req.params;
+    const userID = req.user.id;
 
-    Tarefa.findById(id, (err, tarefa) => {
+    Tarefa.findById(userID, id, (err, tarefa) => {
         if(err) return res.status(500).json({message: err.message});
         else return res.status(200).json(tarefa);
     });
@@ -36,9 +38,11 @@ exports.getById = (req, res) => {
 
 //atualiza tarefa específica
 exports.update = (req, res) => {
-    const {id, titulo, descricao, completado} = req.body;
+    const {titulo, descricao, completado} = req.body;
+    const id = req.params.id;
+    const userID = req.user.id;
 
-    Tarefa.update(id, {titulo, descricao, completado}, (err, tarefa) => {
+    Tarefa.update(userID, id, {titulo, descricao, completado}, (err, tarefa) => {
         if(err) return res.status(500).json({message: err.message});
         else return res.status(200).json(tarefa);
     });
@@ -47,8 +51,9 @@ exports.update = (req, res) => {
 //deleta tarefa específica
 exports.delete = (req, res) => {
     const {id} = req.params;
+    const userID = req.user.id;
 
-    Tarefa.delete(id, (err, tarefa) => {
+    Tarefa.delete(userID, id, (err, tarefa) => {
         if(err) return res.status(500).json({message: err.message});
         else return res.status(200).json(tarefa);
     });

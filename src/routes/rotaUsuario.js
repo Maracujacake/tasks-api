@@ -5,11 +5,7 @@ const authNecessaria = require('../middlewares/loginRequired');
 
 router.post('/add', ControllerUsuario.create);
 router.post('/login', ControllerUsuario.login);
-router.get('/list', ControllerUsuario.listAll);
-router.get('/getByID/:id', authNecessaria,  ControllerUsuario.getByID);
-router.get('/listTarefas/:id', authNecessaria, ControllerUsuario.getTodasTarefas);
-router.get('/TarefasCompletadas/:id', authNecessaria, ControllerUsuario.getTodasTarefasCompletas);
-router.put('/update/:id', authNecessaria, ControllerUsuario.update);
-router.delete('/delete/:id', authNecessaria, ControllerUsuario.delete);
+router.put('/update/', authNecessaria, ControllerUsuario.update);
+router.delete('/delete/', authNecessaria, ControllerUsuario.delete);
 
 module.exports = router;

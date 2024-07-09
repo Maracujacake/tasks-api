@@ -15,6 +15,7 @@ db.serialize( () => {
 
 class Users{
 
+    // compara a senha do usuário com a hash salva no banco
     static verificaSenha(password, hash, callback){
         crypto.compare(password, hash, (err, res) => {
             if(err) return callback(err);
@@ -38,16 +39,6 @@ class Users{
                 if(err) return callback(err);
                 else callback(null, {"lastID" : this.lastID, username, password});
             });
-        });
-    }
-
-
-    // lista todos os usuários cadastrados
-    static findAll(callback){
-        const sql = `SELECT * from Users`;
-        db.all(sql, [], (err, rows) => {
-            if(err) return callback(err);
-            else callback(null, rows);
         });
     }
 
@@ -89,7 +80,7 @@ class Users{
 
     //atualiza dados do usuário já existente a partir do ID
     static update(id, username, password, callback){
-        console.log(id, username, password);
+        //console.log(id, username, password);
         const sql = `UPDATE Users set username = ?, password = ? WHERE id = ?`;
         db.run(sql, [username, password, id], function(err){
             if(err) return callback(err);

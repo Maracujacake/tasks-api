@@ -70,9 +70,9 @@ exports.getTodasTarefasCompletas = (req, res) => {
 
 //atualiza usuário
 exports.update = (req, res) => {
-    const { id } = req.params;
+    const id = req.user.id;
     const { username, password } = req.body;
-    console.log(username, password);
+    //console.log(username, password);
     User.update( id, username, password, (err, user) => {
         if(err) return res.status(500).json({message: err.message});
         else return res.status(200).json(user);
@@ -81,7 +81,7 @@ exports.update = (req, res) => {
 
 //deleta usuário
 exports.delete = (req, res) => {
-    const {id} = req.params;
+    const id = req.user.id;
     User.delete( id, (err, user) => {
         if(err) return res.status(500).json({message: err.message});
         else return res.status(200).json(user);

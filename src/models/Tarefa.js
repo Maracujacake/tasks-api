@@ -29,37 +29,37 @@ class Tarefa{
         });
     }
 
-    // procura de todas as tarefas
-    static findAll(callback){
-        const sql = `SELECT * FROM tarefas`;
-        db.all(sql, [], (err, rows) => {
-            if(err) return callback(err);
+    // lista todas as tarefas do usuário
+    static findAllTarefas(userID, callback) {
+        const sql = `SELECT * FROM tarefas WHERE userID = ?`;
+        db.all(sql, [userID], (err, rows) => {
+            if (err) return callback(err);
             else callback(null, rows);
         });
     }
 
     // procura de tarefa por id
-    static findById(id, callback){
-        const sql = `SELECT * FROM tarefas WHERE id = ?`;
-        db.get(sql, [id], (err, row) => {
+    static findById(userID, id, callback){
+        const sql = `SELECT * FROM tarefas WHERE id = ? AND userID = ?`;
+        db.get(sql, [id, userID], (err, row) => {
             if(err) return callback(err);
             else callback(null, row);
         });
     }
 
     // atualização de tarefa dado um ID
-    static update(id, {titulo, descricao, completado}, callback){
-        const sql = `UPDATE tarefas SET titulo = ?, descricao = ?, completado = ? WHERE id = ?`;
-        db.run(sql, [titulo, descricao, completado, id], function(err){
+    static update(userID, id, {titulo, descricao, completado}, callback){
+        const sql = `UPDATE tarefas SET titulo = ?, descricao = ?, completado = ? WHERE id = ? AND userID = ?`;
+        db.run(sql, [titulo, descricao, completado, id, userID], function(err){
             if(err) return callback(err);
             else callback(null, {id, titulo, descricao, completado});
         });
     }
 
     // deleta uma tarefa dado um ID
-    static delete(id, callback){
-        const sql = `DELETE FROM tarefas WHERE id = ?`;
-        db.run(sql, [id], function(err){
+    static delete(userID, id, callback){
+        const sql = `DELETE FROM tarefas WHERE id = ? AND userID = ?`;
+        db.run(sql, [id, userID], function(err){
             if(err) return callback(err);
             else callback(null, {id});
         });
