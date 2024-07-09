@@ -3,7 +3,8 @@ const Tarefa = require ('../models/Tarefa');
 //criação de tarefas
 exports.criaTarefa = (req, res) => {
 
-    const {titulo, descricao, userID} = req.body;
+    const {titulo, descricao} = req.body;
+    const userID = req.user.id;
     console.log(userID);
     Tarefa.create({titulo, descricao, userID}, (err, tarefa) => {
         if(err) return res.status(500).json({message: err.message});
