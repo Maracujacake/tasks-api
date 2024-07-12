@@ -1,3 +1,9 @@
+/*
+
+modelo de classe para teste.
+criaria-se um controller e um middleware de forma similar aos feitos para usuário
+
+
 const sqlite = require('sqlite3').verbose();
 const crypto = require('bcrypt');
 const db = new sqlite.Database('./src/database/db.sqlite');
@@ -37,3 +43,4 @@ class Admin {
 
 }
 
+*/

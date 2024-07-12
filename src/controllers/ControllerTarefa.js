@@ -28,8 +28,9 @@ exports.listAll = (req, res) => {
 exports.getById = (req, res) => {
     const {id} = req.params;
     const userID = req.user.id;
-
+    console.log(id);
     Tarefa.findById(userID, id, (err, tarefa) => {
+        console.log(userID);
         if(err) return res.status(500).json({message: err.message});
         else return res.status(200).json(tarefa);
     });
@@ -50,7 +51,7 @@ exports.update = (req, res) => {
 
 //deleta tarefa específica
 exports.delete = (req, res) => {
-    const {id} = req.params;
+    const id = req.params;
     const userID = req.user.id;
 
     Tarefa.delete(userID, id, (err, tarefa) => {

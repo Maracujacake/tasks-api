@@ -46,7 +46,7 @@ router.get('/listTarefas', authNecessaria, TarefasController.listAll);
 
 /**
  * @swagger
- * /tarefaUnica/{id}:
+ * /tarefas/tarefaUnica/{id}:
  *   get:
  *    summary: Obtém uma tarefa específica pelo ID
  *    parameters:
@@ -67,7 +67,7 @@ router.get('/tarefaUnica/:id', authNecessaria, TarefasController.getById);
 
 /**
  * @swagger
- * /update/{id}:
+ * /tarefas/update/{id}:
  *   put:
  *    summary: Atualiza uma tarefa específica pelo ID
  *    parameters:
@@ -85,11 +85,14 @@ router.get('/tarefaUnica/:id', authNecessaria, TarefasController.getById);
  *             required:
  *               - titulo
  *               - descricao
+ *               - completado
  *             properties:
  *               titulo:
  *                 type: string
  *               descricao:
  *                 type: string
+ *               completado:
+ *                 type: integer
  *    responses:
  *       200:
  *         description: Tarefa atualizada com sucesso
@@ -102,7 +105,7 @@ router.put('/update/:id', authNecessaria, TarefasController.update);
 
 /**
  * @swagger
- * /delete/{id}:
+ * /tarefas/delete/{id}:
  *   delete:
  *    summary: Deleta uma tarefa específica pelo ID
  *    parameters:
