@@ -6,12 +6,14 @@ Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de
 #### Deploy | Instância EC2 AWS: <a href="http://15.228.15.213:3000/api-docs/">api-task</a>
 
 ## Como executar o projeto: 
+⚠️ Importante: Caso se depare com algum erro, talvez seja necessário mudar a URL no arquivo src/swagger.js para ```http://localhost:3000```
+
+
 - Faça o clone do repositório na sua máquina local ou aonde deseja executá-lo: ```git clone https://github.com/Maracujacake/tasks-api.git```
 - No caminho em que se encontra o projeto ou em um editor de código com o projeto aberto, execute o seguinte comando: ```./run.sh```
 - O script run.sh é responsável por limpar o terminal e executar o comando npm run dev que deve executar a aplicação na porta 3000: ```http://localhost:3000/```
 - Caso queira checar uma documentação mais agradável, basta acessar ```http://localhost:3000/api-docs``` com o projeto executando, ele abrirá uma página com a documentação do swagger
 
-⚠️ Importante: Caso se depare com algum erro de CORS, é necessário mudar a URL no arquivo src/swagger.js para ```http://localhost:3000```
 
 
 ---
