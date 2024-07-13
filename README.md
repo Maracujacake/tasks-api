@@ -11,6 +11,9 @@ Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de
 - O script run.sh é responsável por limpar o terminal e executar o comando npm run dev que deve executar a aplicação na porta 3000: ```http://localhost:3000/```
 - Caso queira checar uma documentação mais agradável, basta acessar ```http://localhost:3000/api-docs``` com o projeto executando, ele abrirá uma página com a documentação do swagger
 
+⚠️ Importante: Caso se depare com algum erro de CORS, é necessário mudar a URL no arquivo src/swagger.js para ```http://localhost:3000```
+
+
 ---
 
 ## Objetivos:
