@@ -3,6 +3,8 @@
 # 📚 API RESTful de gerenciamento de tarefas
 Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de tarefas, proporcionando funcionalidades de CRUD (Create, Read, Update, Delete) de tarefas, autenticação de usuários e armazenamento dos dados em um banco de dados.
 
+#### Deploy | Instância EC2 AWS: <a href="http://15.228.15.213:3000/api-docs/">api-task</a>
+
 ## Como executar o projeto: 
 - Faça o clone do repositório na sua máquina local ou aonde deseja executá-lo: ```git clone https://github.com/Maracujacake/tasks-api.git```
 - No caminho em que se encontra o projeto ou em um editor de código com o projeto aberto, execute o seguinte comando: ```./run.sh```
