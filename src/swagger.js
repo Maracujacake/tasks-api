@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: 'https://tasks-api-uzp0.onrender.com/',
       },
     ],
     components: {
