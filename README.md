@@ -3,7 +3,7 @@
 # 📚 API RESTful de gerenciamento de tarefas
 Este projeto tem como objetivo desenvolver uma API RESTful para gerenciamento de tarefas, proporcionando funcionalidades de CRUD (Create, Read, Update, Delete) de tarefas, autenticação de usuários e armazenamento dos dados em um banco de dados.
 
-#### Deploy | Instância EC2 AWS: <a href="https://tasks-api-uzp0.onrender.com/api-docs/">api-task</a>
+#### Deploy | Render : <a href="https://tasks-api-uzp0.onrender.com/api-docs/">api-task</a> (Demora um pouquinho para carregar)
 
 ## Como executar o projeto: 
 ⚠️ Importante: Caso se depare com algum erro, talvez seja necessário mudar a URL no arquivo src/swagger.js para ```http://localhost:3000```
